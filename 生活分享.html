@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>焦糖布丁的生活照片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft JhengHeui', '微軟正黑體', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f0fff8;
+            color: #2d5a4a;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+        }
+        
+        .page-title h1 {
+            font-size: 2.5rem;
+            color: #2d5a4a;
+            margin-bottom: 10px;
+        }
+        
+        .page-title p {
+            font-size: 1.2rem;
+            color: #4a7a65;
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto 50px;
+        }
+        
+        .photo-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .photo-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .photo-info {
+            padding: 15px;
+        }
+        
+        .photo-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2d5a4a;
+            font-size: 1.1rem;
+        }
+        
+        .photo-date {
+            font-size: 0.9rem;
+            color: #7a9c8a;
+            margin-bottom: 10px;
+        }
+        
+        .photo-description {
+            font-size: 0.95rem;
+            color: #4a7a65;
+        }
+        
+        /* YouTube 區域樣式 */
+        .youtube-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+        
+        .youtube-title {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2d5a4a;
+            font-size: 1.8rem;
+        }
+        
+        .youtube-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .video-wrapper {
+            flex: 1;
+            min-width: 300px;
+            max-width: 560px;
+        }
+        
+        .video-wrapper iframe {
+            width: 100%;
+            height: 315px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-description {
+            margin-top: 15px;
+            text-align: center;
+            color: #4a7a65;
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .photo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .video-wrapper iframe {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
+            .video-wrapper iframe {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 頁面標題 -->
+    <section class="page-title">
+        <h1>焦糖布丁的生活點滴</h1>
+        <p>記錄焦糖(黃和尚)和布丁(白和尚)的珍貴時刻</p>
+    </section>
+    
+    <!-- 照片網格 -->
+    <section class="photo-grid">
+        <!-- 照片1 -->
+        <div class="photo-card">
+            <img src="images/焦糖布丁1.jpg" alt="睡覺抓拍" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">偷偷睡覺被抓到啦!</div>
+                <div class="photo-date">2024年05月15日</div>
+                <div class="photo-description">適不適很像兩個和尚蹦出頭呢?!</div>
+            </div>
+        </div>
+        
+        <!-- 照片2 -->
+        <div class="photo-card">
+            <img src="images/焦糖布丁2.jpg" alt="各做各事" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">沒默契</div>
+                <div class="photo-date">2024年04月27日</div>
+                <div class="photo-description">抓拍的瞬間，一個伸懶腰、一個打哈欠</div>
+            </div>
+        </div>
+        
+        <!-- 照片3 -->
+        <div class="photo-card">
+            <img src="images/焦糖布丁3.jpg" alt="敲敲話" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">密謀</div>
+                <div class="photo-date">2024年05月17日</div>
+                <div class="photo-description">這兩隻特地躲到冷氣上講話，不知道在密謀甚麼</div>
+            </div>
+        </div>
+        
+        <!-- 照片4 -->
+        <div class="photo-card">
+            <img src="images/焦糖布丁4.jpg" alt="睡覺抓拍" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">又是睡覺抓拍</div>
+                <div class="photo-date">2024年05月17日</div>
+                <div class="photo-description">睡顏超可愛的</div>
+            </div>
+        </div>
+        
+        <!-- 照片5 -->
+        <div class="photo-card">
+            <img src="images/焦糖布丁5.jpg" alt="威風鼎鼎" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">威風凜凜</div>
+                <div class="photo-date">2024年10月19日</div>
+                <div class="photo-description">可愛100分；氣勢1000分</div>
+            </div>
+        </div>
+        
+        <!-- 照片6 -->
+        <div class="photo-card">
+            <img src="images/焦糖布丁7.jpg" alt="打架" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">第一次見面</div>
+                <div class="photo-date">2024年03月10日</div>
+                <div class="photo-description">兩小隻的初見，布丁看起來想打焦糖~~</div>
+            </div>
+        </div>
+        
+        <!-- 照片7 -->
+        <div class="photo-card">
+            <img src="images/焦糖布丁8.jpg" alt="可愛" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">日常裝可愛</div>
+                <div class="photo-date">2024年03月27日</div>
+                <div class="photo-description">甚麼都不做也很可愛</div>
+            </div>
+        </div>
+        
+        <!-- 照片8 -->
+        <div class="photo-card">
+            <img src="images/焦糖布丁9.jpg" alt="盪鞦韆" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">盪鞦韆</div>
+                <div class="photo-date">2024年03月31日</div>
+                <div class="photo-description">這日子過得可真是悠閒</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁10.jpg" alt="盪鞦韆2" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">盪鞦韆2</div>
+                <div class="photo-date">2024年03月31日</div>
+                <div class="photo-description">休閒日子part2</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁11.jpg" alt="擺pose中" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">擺pose中</div>
+                <div class="photo-date">2024年04月14日</div>
+                <div class="photo-description">難得那麼配合的拍照，絕對不是因為我手上拿食物</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁12.jpg" alt="打哈欠" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">打哈欠</div>
+                <div class="photo-date">2024年04月27日</div>
+                <div class="photo-description">果然打哈欠是會傳染的</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁13.jpg" alt="日常發瘋" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">日常發瘋</div>
+                <div class="photo-date">2024年05月04日</div>
+                <div class="photo-description">布丁:我旁邊這個鳥怎麼老是怪怪的?</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁14.jpg" alt="探險記" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">探險記</div>
+                <div class="photo-date">2024年05月20日</div>
+                <div class="photo-description">家裡的遊樂場=垃圾桶??!!</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁15.jpg" alt="我們可以" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">我們可以自己來</div>
+                <div class="photo-date">2024年06月20日</div>
+                <div class="photo-description">焦糖布丁:你們不用為我們我們自己吃</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁16.jpg" alt="好吃" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">搶食</div>
+                <div class="photo-date">2024年05月21日</div>
+                <div class="photo-description">從此開始搶食物大戰</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁17.jpg" alt="阿嬤的水杯" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">阿嬤的水杯</div>
+                <div class="photo-date">2024年07月02日</div>
+                <div class="photo-description">焦糖布丁:阿嬤水杯的水比我們水壺的水好喝</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁18.jpg" alt="換毛" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">焦糖布丁掉的毛</div>
+                <div class="photo-date">2024年11月01日</div>
+                <div class="photo-description">焦糖布丁:你們是不是偷拔我的毛</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁19.jpg" alt="相親相愛" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">相親相愛</div>
+                <div class="photo-date">2024年11月07日</div>
+                <div class="photo-description">日常幫忙整理羽毛中</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁20.jpg" alt="裝可愛" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">裝可愛</div>
+                <div class="photo-date">2024年11月09日</div>
+                <div class="photo-description">黑隊~我們又在裝可愛了</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁21.jpg" alt="擺pose中" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">我們是明星</div>
+                <div class="photo-date">2025年02月08日</div>
+                <div class="photo-description">可以拿去當雜誌封面照的程度</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁22.jpg" alt="親親" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">親親</div>
+                <div class="photo-date">2025年07月17日</div>
+                <div class="photo-description">布丁:親個頭，我只是在整理羽毛而已</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁23.jpg" alt="幹飯" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">吃飯皇帝大</div>
+                <div class="photo-date">2025年10月04日</div>
+                <div class="photo-description">天塌下來都不能影響我們幹飯</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁24.jpg" alt="發呆" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">發呆</div>
+                <div class="photo-date">2025年07月17日</div>
+                <div class="photo-description">這主人不知道在幹嘛，一直亂拍</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁25.jpg" alt="日常" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">日常幫忙整理羽毛中2</div>
+                <div class="photo-date">2025年9月20日</div>
+                <div class="photo-description">布丁:焦糖你有點太過享受囉!</div>
+            </div>
+		</div>	
+			<div class="photo-card">
+            <img src="images/焦糖布丁26.jpg" alt="拍照" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">看我看我</div>
+                <div class="photo-date">2025年08月17日</div>
+                <div class="photo-description">布丁:焦糖妳這顆大頭，你擋到我拍照了</div>
+            </div>
+        </div>
+		<div class="photo-card">
+            <img src="images/焦糖布丁27.jpg" alt="剛洗好澡的焦糖布丁" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">香(臭)噴噴</div>
+                <div class="photo-date">2025年06月15日</div>
+                <div class="photo-description">洗完澡的鳥你以為很香嗎?那味道可說是讓人難以忘懷</div>
+            </div>
+        </div>
+		<div class="photo-card">
+            <img src="images/焦糖布丁28.jpg" alt="懶得裡我的焦糖" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">擺拍</div>
+                <div class="photo-date">2025年10月04日</div>
+                <div class="photo-description">正在幫他們拍照，布丁認真看鏡頭，焦糖~~睡覺~~</div>
+            </div>
+        </div>
+		<div class="photo-card">
+            <img src="images/焦糖布丁29.jpg" alt="主人好像怪怪的" class="photo-img">
+            <div class="photo-info">
+                <div class="photo-title">我們的主人怪怪的</div>
+                <div class="photo-date">2025年10月11日</div>
+                <div class="photo-description">我們的主人總是喜歡拍奇怪的照片~</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- YouTube 區域 -->
+    <section class="youtube-section">
+        <h2 class="youtube-title">焦糖布丁的精彩影片</h2>
+        <div class="youtube-container">
+            <div style="background-color: #faf7f7; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                    <p><iframe width="500" height="250" src="https://www.youtube.com/embed/n93b9zKowRE?si=3FRvK_6OGSauJ7tk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+				
+				</div>		
+                <div style="background-color: #faf7f7; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                    <p><iframe width="500" height="250" src="https://www.youtube.com/embed/11XahUFZBB4?si=ujHvJte8eYLNFjSR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+				
+				</div>
+				<div style="background-color: #faf7f7; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                    <p><iframe width="500" height="250" src="https://www.youtube.com/embed/0mbpLHseyBM?si=cIpY7E9JF6pQK4eo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+				
+				</div>
+				<div style="background-color: #faf7f7; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                    <p><iframe width="500" height="250" src="https://www.youtube.com/embed/TbXpI6bhaf8?si=EUyts1E469Ovlww1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+				
+				</div>
+        </div>
+    </section>
+
+    <script>
+        // 簡單的圖片載入效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.photo-img');
+            
+            images.forEach(img => {
+                // 模擬圖片載入效果
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.5s ease';
+                
+                setTimeout(() => {
+                    img.style.opacity = '1';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

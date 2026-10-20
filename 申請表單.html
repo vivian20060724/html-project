@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>焦糖布丁的快樂小窩！官方粉絲後援會</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Arial', 'Microsoft JhengHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f5f0;
+            color: #5a4a42;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        h1 {
+            color: #d2691e;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        h2 {
+            color: #8b4513;
+            text-align: center;
+            font-weight: normal;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+        
+        .pet-icon {
+            text-align: center;
+            font-size: 40px;
+            margin: 10px 0;
+        }
+        
+        .intro {
+            background-color: #fff9e6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 4px solid #ffd700;
+        }
+        
+        .form-section {
+            background-color: #fff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        h3 {
+            color: #a0522d;
+            border-bottom: 2px dashed #f0d9c0;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #5a4a42;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #e0d6c8;
+            border-radius: 8px;
+            background-color: #fefefe;
+            font-size: 16px;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #d2691e;
+            box-shadow: 0 0 5px rgba(210, 105, 30, 0.3);
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .checkbox-group, .radio-group {
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-item, .radio-item {
+            margin-bottom: 10px;
+        }
+        
+        input[type="checkbox"], input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .required::after {
+            content: " *";
+            color: #e74c3c;
+        }
+        
+        .other-input {
+            margin-left: 25px;
+            margin-top: 5px;
+            width: calc(100% - 25px);
+        }
+        
+        .submit-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .agreement {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #d2691e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #b35917;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>「焦糖布丁的快樂小窩！」官方粉絲後援會入會申請</h1>
+        <h2>快來加入焦糖與布丁的快樂小窩，獲取獨家生活點滴與專屬福利！</h2>
+        
+        <div class="intro">
+            <p>嗨，親愛的朋友！感謝你發現了我們家兩隻可愛的小寶貝——焦糖與布丁！為了集結所有喜愛他們的朋友，我們成立了焦糖布丁的後援會啦!!在這裡，你將能搶先看到他們的萌照、獨家影片，參與專屬活動，甚至能決定他們的下一個玩具或點心！快填寫以下表單，成為我們的創始元老級會員吧！</p>
+        </div>
+        
+        <form id="fanClubForm">
+            <!-- 基本資料區塊 -->
+            <div class="form-section">
+                <h3>【基本資料】</h3>
+                
+                <div class="form-group">
+                    <label for="nickname" class="required">粉絲暱稱 / 姓名</label>
+                    <input type="text" id="nickname" name="nickname" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthday" class="required">生日</label>
+                    <input type="date" id="birthday" name="birthday" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="required">電子郵件</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="required">聯絡電話</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">社群媒體帳號</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="social" value="instagram"> Instagram：<input type="text" class="other-input" placeholder="請輸入帳號"></label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="social" value="facebook"> Facebook：<input type="text" class="other-input" placeholder="請輸入帳號"></label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="social" value="line"> Line：<input type="text" class="other-input" placeholder="請輸入帳號"></label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">居住城市</label>
+                    <textarea id="city" name="city"></textarea>
+                </div>
+            </div>
+            
+            <!-- 寵物了解區塊 -->
+            <div class="form-section">
+                <h3>【寵物了解】</h3>
+                
+                <div class="form-group">
+                    <label class="required">1. 你最喜歡誰呢？</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="favorite" value="caramel" required> 焦糖（恰北北的小可愛）</label>
+                    </div>
+                    <div class="radio-group">
+                        <label><input type="radio" name="favorite" value="pudding"> 布丁（怪怪的好奇寶寶）</label>
+                    </div>
+                    <div class="radio-group">
+                        <label><input type="radio" name="favorite" value="both"> 兩個都愛，無法選擇！</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">2. 你是在哪裡認識焦糖和布丁的？</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="where_met" value="instagram"> Instagram</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="where_met" value="facebook"> Facebook</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="where_met" value="friend"> 朋友推薦</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="where_met" value="encounter"> 在公園/寵物咖啡廳巧遇</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="where_met" value="other"> 其他：<input type="text" class="other-input" placeholder="請說明"></label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">3. 你最喜歡焦糖和布丁的哪一點？</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="liked_points" value="eyes"> 無辜的大眼睛</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="liked_points" value="behavior"> 搞笑的行為舉止</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="liked_points" value="interaction"> 牠們之間可愛的互動</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="liked_points" value="other"> 其他：<input type="text" class="other-input" placeholder="請說明"></label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">4. 你想對焦糖和布丁說的一句話？</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+            </div>
+            
+            <!-- 後援會會員權益與意願調查區塊 -->
+            <div class="form-section">
+                <h3>【後援會會員權益與意願調查】</h3>
+                
+                <div class="form-group">
+                    <label class="required">1. 你希望透過後援會獲得什麼？</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="benefits" value="newsletter"> 每月獨家電子報（包含生活日記、未公開照片）</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="benefits" value="social_group"> 專屬IG粉絲帳號/社團的加入資格</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="benefits" value="merchandise"> 會員專屬的限量周邊商品（如：貼紙、鑰匙圈、寵物領巾）優先購買權</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="benefits" value="naming"> 參與「粉絲命名」活動（例如：為新玩具、新衣服取名）</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="benefits" value="meetup"> 實體寵物聚會（如：生日會、郊遊）</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">2. 你是否願意參與後援會的實體聚會活動？</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="meetup_willingness" value="very_willing" required> 非常願意！</label>
+                    </div>
+                    <div class="radio-group">
+                        <label><input type="radio" name="meetup_willingness" value="depends"> 視活動時間與地點而定</label>
+                    </div>
+                    <div class="radio-group">
+                        <label><input type="radio" name="meetup_willingness" value="not_now"> 暫時不參加實體活動</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">3. 對於後援會的周邊商品，你對什麼最感興趣？</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="merchandise_interests" value="pet_supplies"> 寵物用品類（牽繩、食碗、領巾）</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="merchandise_interests" value="stationery"> 文具類（貼紙、明信片、紙膠帶）</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="merchandise_interests" value="lifestyle"> 生活小物類（鑰匙圈、馬克杯、手機支架）</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="merchandise_interests" value="apparel"> 服飾類（T恤、帽子）</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="merchandise_interests" value="other"> 其他：<input type="text" class="other-input" placeholder="請說明"></label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 創意發想與粉絲貢獻區塊 -->
+            <div class="form-section">
+                <h3>【創意發想與粉絲貢獻】</h3>
+                
+                <div class="form-group">
+                    <label for="fan_name" class="required">1. 你覺得焦糖和布丁的粉絲應該叫什麼名字？</label>
+                    <input type="text" id="fan_name" name="fan_name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">2. 你是否有任何才華想貢獻給後援會？</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="talents" value="design"> 繪畫 / 設計</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="talents" value="media"> 攝影 / 影片剪輯</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="talents" value="writing"> 文案撰寫</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="talents" value="planning"> 活動策劃</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="talents" value="support"> 目前沒有，但我會大力支持！</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="suggestions">3. 對於後援會的未來發展，你有什麼建議或想法嗎？</label>
+                    <textarea id="suggestions" name="suggestions"></textarea>
+                </div>
+            </div>
+            
+            <!-- 同意與提交區塊 -->
+            <div class="form-section">
+                <h3>【同意與提交】</h3>
+                
+                <div class="agreement">
+                    <p><strong>個人資料保護聲明：</strong></p>
+                    <p>本人瞭解所提供之個人資料將僅用於「焦糖與布丁後援會」之會員管理、活動通知及相關權益發送，絕不外流或作為其他商業用途。</p>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required"><input type="checkbox" name="agreement" required> 我已閱讀並同意以上聲明</label>
+                </div>
+                
+                <div class="submit-section">
+                    <button type="submit" class="submit-btn">立即加入，成為快樂小窩家族的一員！</button>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+
+    <script>
+        document.getElementById('fanClubForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('感謝您的申請！我們已收到您的入會申請，將盡快與您聯繫！');
+            // 在實際應用中，這裡會將表單數據發送到服務器
+        });
+    </script>
+</body>
+</html>

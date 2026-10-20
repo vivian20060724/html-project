@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>焦糖布丁的快樂鳥窩</title>
+    <style>
+        /* 全局樣式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', 'Microsoft JhengHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f5e7;
+            color: #5a3e2b;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px; /* 增加左右內邊距 */
+        }
+        
+        /* 標題樣式 */
+        header {
+            background-image: url('images/焦糖布丁6.jpg');
+            background-size: cover;
+            background-position: center 50;
+            height: 500px; 
+            width: 100%; 
+            padding: 60px 0;
+            text-align: center;
+            position: relative; 
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: flex;                    
+            align-items: center;              
+            justify-content: center; 
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px; /* 增加內邊距 */
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 19px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #Bb4513;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-family: 'Courgette', cursive;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #a0522d;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 0;
+        }
+        
+        /* 按鈕樣式 */
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+            padding: 0 10px; /* 添加內邊距 */
+        }
+        
+        .nav-btn {
+            background-color: #d4a76a;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .nav-btn:hover {
+            background-color: #b8864c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        
+        /* 主要內容區域 */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
+            padding: 0 10px; /* 添加內邊距 */
+        }
+        
+        .intro-section {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px; /* 增加內邊距 */
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .photo-gallery {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        h2 {
+            color: #8b4513;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e6b89c;
+        }
+        
+        /* 照片牆樣式 */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px; /* 增加間距 */
+        }
+        
+        .photo-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* 頁腳樣式 */
+        footer {
+            background-color: #8b4513;
+            color: white;
+            text-align: center;
+            padding: 25px 0; /* 增加內邊距 */
+            margin-top: 40px;
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px; /* 移動設備上減少內邊距 */
+            }
+            
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 15px; /* 移動設備上減少間距 */
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-btn {
+                width: 80%;
+            }
+            
+            .main-content {
+                padding: 0 5px; /* 移動設備上減少內邊距 */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px; /* 小屏幕設備上進一步減少內邊距 */
+            }
+            
+            .header-content {
+                padding: 25px; /* 小屏幕設備上減少內邊距 */
+            }
+            
+            h1 {
+                font-size: 2.2rem; /* 小屏幕設備上調整字體大小 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>歡迎來到焦糖布丁的小窩</h1>
+                <p class="subtitle">~吵鬧是不由自主的，裝可愛是有意的~</p>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="window.open('和尚鸚鵡科普.html', '_blank')">和尚鹦鹉科普</button>
+            <button class="nav-btn" onclick="window.open('布丁.html', '_blank')">布丁自介</button>
+            <button class="nav-btn" onclick="window.open('焦糖.html', '_blank')">焦糖自介</button>
+            <button class="nav-btn" onclick="window.open('生活分享.html', '_blank')">生活分享</button>
+            <button class="nav-btn" onclick="window.open('申請表單.html', '_blank')">加入粉絲後援會</button>
+        </div>
+        
+        <div class="main-content">
+            <section class="intro-section">
+                <h2>關於焦糖布丁</h2>
+                <p>焦糖和布丁是我2024年學測後爸爸送給我的禮物，因為當時一直很想養鸚鵡，奈何在準備學測沒時間照顧，所以就延後到學測後了。而他們的到來帶給我生活中無盡的歡樂和溫暖。</p>
+                <p>還記得大概2月初的時候是布丁先來到我們家，那時候布丁已經一個多月大了;而焦糖是在布丁來後過了一個月才被我爸帶回家，當時大概出生三個禮拜左右。</p>
+                <p>他們對我來說不僅是寵物，更是我的家人，每天回家看到他們興奮地拍打翅膀朝我飛來或跟我玩，我所有的疲憊都會煙消雲散。希望通過這個網站，能讓更多人了解我們家的焦糖與布丁，以及各式各樣的鸚鵡。</p>
+            </section>
+            
+            <section class="photo-gallery">
+                <h2>焦糖布丁的照片</h2>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="images/焦糖1.jpg" alt="焦糖的照片" title="焦糖的照片">
+                    </div>
+                    <div class="photo-item">
+                        <img src="images/布丁1.jpg" alt="布丁的照片" title="布丁的照片">
+                    </div>
+                    <div class="photo-item">
+                        <img src="images/焦糖2.jpg" alt="焦糖洗澡後的照片" title="焦糖洗澡後的照片">
+                    </div>
+                    <div class="photo-item">
+                        <img src="images/布丁2.jpg" alt="布丁洗澡後的照片" title="布丁洗澡後的照片">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 焦糖布丁的快樂鳥窩 | 設計者: 1132343 李庭萱 </p>
+        </div>
+    </footer>
+</body>
+</html>

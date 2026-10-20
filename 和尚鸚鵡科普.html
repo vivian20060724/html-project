@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>和尚鸚鵡科普 - 探索奇妙世界</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6a4c93;
+            --secondary-color: #8ac926;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --accent-color: #9c89b8;
+            --text-color: #495057;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .carousel {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+        }
+        
+        .intro {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: var(--light-color);
+            border-radius: 10px;
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        th, td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+        }
+        
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .photo-wall {
+            display: grid;
+            grid-template-columns: repeat(7, 2fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 200px;
+        }
+        
+        .photo-item.main {
+            grid-column: span 2;
+            grid-row: span 2;
+            height: 420px;
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .resources {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .resource-link {
+            background-color: var(--light-color);
+            padding: 1rem;
+            border-radius: 8px;
+            flex: 1 1 300px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s;
+        }
+        
+        .resource-link:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+   
+        .care-guide {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+        
+        .care-card {
+            background: linear-gradient(135deg, #f8fbf9 0%, #edf4ef 100%);
+            padding: 1.8rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .care-card h3 {
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+        
+        .care-card h3 i {
+            margin-right: 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        .care-card ul {
+            padding-left: 1.5rem;
+        }
+        
+        .care-card li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .health-section {
+            background: linear-gradient(135deg, #f8fbf9 0%, #edf4ef 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .health-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .health-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .health-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .health-item h4 i {
+            margin-right: 0.8rem;
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .photo-wall {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .photo-item.main {
+                grid-column: span 2;
+                height: 250px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">和尚鸚鵡科普</div>
+            <ul class="nav-links">
+                <li><a href="#about">關於和尚鸚鵡</a></li>
+                <li><a href="#colors">顏色變異</a></li>
+                <li><a href="#skills">獨特技能</a></li>
+                <li><a href="#care">飼養指南</a></li>
+                <li><a href="#health">健康與疾病</a></li>
+                <li><a href="#legal">法律與爭議</a></li>
+                <li><a href="#faq">常見問題</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1>探索和尚鸚鵡的奇妙世界</h1>
+            
+            <div class="carousel">
+                <!-- 輪播圖將由JavaScript控制 -->
+                <div class="carousel-slide active" style="background-image: url('images/開頭1.jpg')"></div>
+                <div class="carousel-slide" style="background-image: url('images/開頭4.jpg')"></div>
+                <div class="carousel-slide" style="background-image: url('images/開頭3.webp')"></div>
+				<div class="carousel-slide" style="background-image: url('images/開頭6.jpg')"></div>
+            </div>
+            
+            <div class="intro">
+                <p>您是否見過一種綠色身體、灰色胸腹，看起來像穿著一件灰色毛衣的鸚鵡？牠就是本網頁的主角——和尚鸚鵡！</p>
+				<p>在這裡你可以了解與和尚鸚鵡有關的基礎知識，另外還可以認識顏色多樣化的和尚鸚鵡</p>
+                <p>點擊下方，開始探索和尚鸚鵡的奇妙世界吧！</p>
+            </div>
+            
+            <a href="#about" class="btn">開始探索</a>
+        </section>
+
+        <section id="about" class="section">
+            <h2>關於和尚鸚鵡</h2>
+            
+            <h3>基本資料卡</h3>
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>內容</th>
+                </tr>
+                <tr>
+                    <td>學名</td>
+                    <td>和尚鸚鵡(Myiopsitta monachus)</td>
+                </tr>
+                <tr>
+                    <td>別稱</td>
+                    <td>塔樓鸚鵡</td>
+                </tr>
+                <tr>
+                    <td>原產地</td>
+                    <td>南美洲（阿根廷及周邊國家）</td>
+                </tr>
+                <tr>
+                    <td>平均壽命</td>
+                    <td>15-30年（飼養得當可更長）</td>
+                </tr>
+                <tr>
+                    <td>平均體長</td>
+                    <td>28-30公分</td>
+                </tr>
+                <tr>
+                    <td>平均體重</td>
+                    <td>90-150克</td>
+                </tr>
+            </table>
+            
+            <h3>外觀特徵</h3>
+            <p>原生種為綠色身體，胸部和前額為淡灰色，腹部是淡黃綠色，翅膀飛羽呈深藍色，頭部灰白，像戴了帽子。可以提一下牠的「階梯狀」尾羽和橘黃色的喙。</p>
+            
+            <h3>性格特點</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>聰明機靈</h4>
+                    <p>學習能力強，能學會不少單詞和技巧。</p>
+                </div>
+                <div class="feature-card">
+                    <h4>活潑好動</h4>
+                    <p>精力充沛，需要大量玩耍和互動時間。</p>
+                </div>
+                <div class="feature-card">
+                    <h4>社交性強</h4>
+                    <p>在野外是群居動物，作為寵物會非常親近主人，但也可能產生分離焦慮。</p>
+                </div>
+                <div class="feature-card">
+                    <h4>愛說話/吵鬧</h4>
+                    <p>聲音響亮，並非優美的鳴叫，而是嘈雜的嘎嘎聲。很會模仿聲音和說話。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="colors" class="section">
+            <h2>和尚鸚鵡的顏色</h2>
+            <p>和尚鸚鵡擁有超過20種不同的顏色變異，以下是其中一些特別的顏色：</p>
+            
+            <div class="photo-wall">
+                <div class="photo-item main">
+                    <img src="images/和尚顏色.jpg" alt="和尚鸚鵡基礎顏色">
+                    <div class="photo-caption">顏色總覽圖</div>
+                </div>
+                <div class="photo-item">
+                    <img src="images/綠和尚.jpeg" alt="綠和尚鸚鵡">
+                    <div class="photo-caption">綠色(原生種)</div>
+                </div>
+				<div class="photo-item">
+                    <img src="images/藍和尚.jpeg" alt="藍和尚鸚鵡">
+                    <div class="photo-caption">藍色</div>
+                </div>
+                <div class="photo-item">
+                    <img src="images/黃和尚.jpeg" alt="黃和尚鸚鵡">
+                    <div class="photo-caption">黃色</div>
+                </div>
+                <div class="photo-item">
+                    <img src="images/白和尚.jpg" alt="白和尚鸚鵡">
+                    <div class="photo-caption">白色</div>
+                </div>
+                <div class="photo-item">
+                    <img src="images/紫派洛和尚.jpeg" alt="紫派洛和尚鸚鵡">
+                    <div class="photo-caption">紫派洛</div>
+                </div>
+                <div class="photo-item">
+                    <img src="images/黑和尚.jpeg" alt="黑和尚鸚鵡">
+                    <div class="photo-caption">黑色</div>
+                </div> 
+				<div class="photo-item">
+                    <img src="images/哈密瓜.png" alt="哈密瓜和尚鸚鵡">
+                    <div class="photo-caption">哈密瓜</div>
+                </div> 
+				<div class="photo-item">
+                    <img src="images/肉桂.png" alt="肉桂和尚鸚鵡">
+                    <div class="photo-caption">黃肉桂</div>
+                </div> 
+				<div class="photo-item">
+                    <img src="images/藍銀絲.png" alt="藍銀絲和尚鸚鵡">
+                    <div class="photo-caption">藍銀絲</div>
+                </div> 
+				<div class="photo-item">
+                    <img src="images/奶油黃.png" alt="奶油黃和尚鸚鵡">
+                    <div class="photo-caption">奶油黃色</div>
+                </div> 
+                
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>獨特技能與行為</h2>
+            <h3>「建築大師」—— 獨一無二的築巢本能</h3>
+            <p>這是和尚鸚鵡最與眾不同的地方。牠們是極少數會用樹枝搭建大型公共巢的鸚鵡，而非使用樹洞。</p>
+			<p>在飼養環境下，牠們依然會有強烈的築巢慾望，可能會把籠子裡的一切東西編織起來。</p>
+            
+            <div style="text-align: center; margin: 2rem 0;">
+                <img src="images/巢1.jpeg" alt="和尚鸚鵡巢穴" style="max-width: 100%; border-radius: 10px;">
+                <p style="margin-top: 0.5rem; font-style: italic;">和尚所築的巢有多個房間，供不同家庭使用同時也是提供他們遮風避雨、防禦天敵的地方。</p>
+            </div>
+    
+        </section>
+
+        <section id="care" class="section">
+            <h2>飼養指南（實用資訊）</h2>
+            
+            <h3>飼養前必讀</h3>
+            <div class="care-guide">
+                <div class="care-card">
+                    <h3><i class="fas fa-thumbs-up"></i>優點</h3>
+                    <ul>
+                        <li>聰明</li>
+                        <li>親人</li>
+                        <li>壽命長</li>
+                        <li>繁殖能力強</li>
+                    </ul>
+                </div>
+                <div class="care-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i>挑戰</h3>
+                    <ul>
+                        <li>非常吵鬧</li>
+                        <li>破壞力強（需要不斷啃咬）</li>
+                        <li>需要大量陪伴</li>
+                        <li>有地域性</li>
+                        <li>在某些地區飼養是違法的</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>飼養環境</h3>
+            <div class="care-guide">
+                <div class="care-card">
+                    <h3><i class="fas fa-home"></i>籠子</h3>
+                    <p>需要盡可能大的籠子，欄間距要小。</p>
+                </div>
+                <div class="care-card">
+                    <h3><i class="fas fa-tree"></i>站架/遊戲架</h3>
+                    <p>必備，提供活動空間。</p>
+                </div>
+            </div>
+            
+            <h3>飲食管理</h3>
+            <div class="care-guide">
+                <div class="care-card">
+                    <h3><i class="fas fa-seedling"></i>主食</h3>
+                    <p>高品質的鸚鵡專用滋養丸。</p>
+                </div>
+                <div class="care-card">
+                    <h3><i class="fas fa-apple-alt"></i>副食</h3>
+                    <p>新鮮的蔬菜、水果（注意避免酪梨、巧克力等有毒食物）。</p>
+                </div>
+                <div class="care-card">
+                    <h3><i class="fas fa-bread-slice"></i>補充</h3>
+                    <p>可提供少量穀物、豆類。</p>
+                </div>
+            </div>
+            
+            <h3>日常照顧</h3>
+            <div class="care-guide">
+                <div class="care-card">
+                    <h3><i class="fas fa-users"></i>互動與社交</h3>
+                    <p>每天至少1-2小時的放風和互動時間。</p>
+                </div>
+                <div class="care-card">
+                    <h3><i class="fas fa-puzzle-piece"></i>環境豐富化</h3>
+                    <p>提供大量玩具，特別是可供啃咬的木製、皮革玩具，以防牠們破壞家具。</p>
+                </div>
+                <div class="care-card">
+                    <h3><i class="fas fa-broom"></i>清潔</h3>
+                    <p>每週清洗籠子、食盆水盆。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="health" class="section">
+            <h2>健康與疾病</h2>
+            
+            <div class="health-section">
+                <h3>常見健康問題</h3>
+                <div class="health-grid">
+                    <div class="health-item">
+                        <h4><i class="fas fa-weight"></i>肥胖</h4>
+                        <p>由於飲食不當和缺乏運動導致的常見問題。</p>
+                    </div>
+                    <div class="health-item">
+                        <h4><i class="fas fa-feather"></i>啄羽症</h4>
+                        <p>因無聊或壓力導致的行為問題。</p>
+                    </div>
+                    <div class="health-item">
+                        <h4><i class="fas fa-lungs"></i>曲黴菌症</h4>
+                        <p>呼吸道真菌感染，需要及時治療。</p>
+                    </div>
+                    <div class="health-item">
+                        <h4><i class="fas fa-virus"></i>喙羽症</h4>
+                        <p>病毒性疾病，影響羽毛和喙的生長。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="health-section">
+                <h3>健康鸚鵡的跡象</h3>
+                <div class="health-grid">
+                    <div class="health-item">
+                        <h4><i class="fas fa-eye"></i>明亮的眼睛</h4>
+                        <p>眼睛清澈有神，無分泌物。</p>
+                    </div>
+                    <div class="health-item">
+                        <h4><i class="fas fa-shield-alt"></i>乾淨的洩殖孔</h4>
+                        <p>周圍羽毛清潔，無糞便沾黏。</p>
+                    </div>
+                    <div class="health-item">
+                        <h4><i class="fas fa-feather-alt"></i>光滑的羽毛</h4>
+                        <p>羽毛整齊有光澤，無斷裂或缺失。</p>
+                    </div>
+                    <div class="health-item">
+                        <h4><i class="fas fa-heartbeat"></i>良好的食慾和活力</h4>
+                        <p>進食正常，活動力充足。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-card" style="margin-top: 2rem;">
+                <h4><i class="fas fa-exclamation-circle"></i>重要提醒</h4>
+                <p>發現異常應立即尋求專業的異寵獸醫。</p>
+            </div>
+        </section>
+
+        <section id="legal" class="section">
+            <h2>法律與爭議</h2>
+            
+            <h3>入侵物種問題</h3>
+            <p>解釋為何在許多國家（如美國部分州、歐洲）禁止飼養或嚴格管制。</p>
+            <p>說明牠們如何因寵物貿易或逃逸，在非原產地建立野生族群，與本地鳥類競爭資源，並對農業造成損害。</p>
+            
+            <h3>飼養合法性</h3>
+            <p>強烈建議設置一個查詢區塊，提醒讀者在考慮飼養前，務必查詢當地法律。可以提供相關政府網站連結或關鍵字搜索建議。</p>
+            
+            <div class="feature-card">
+                <h4>飼養前請查詢當地法律</h4>
+                <p>在考慮飼養和尚鸚鵡前，請務必確認您所在地區的法律規定。</p>
+				<br></br>
+                <a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=M0060027" class="btn">查詢當地法規</a>
+				<a href="https://www.moa.gov.tw/ws.php?id=2446191" class="btn">臺灣推動華盛頓公約鸚鵡管理與貿易現況</a>
+            </div>
+        </section>
+
+        <section id="resources" class="section">
+            <h2>推薦資料</h2>
+            <p class="subtitle">可從以下的網站或影片中更認識和尚鸚鵡喔!</p>
+            
+            <div class="resources">
+                <a href="https://www.forpetsupply.com/monk-parrot/" class="resource-link">
+                    <h4>【2025年最新】群居小鳥</h4>
+                    <p>詳細介紹——和尚鸚鵡價格、智商、飼養指南</p>
+                </a>
+                <a href="https://lywalks.blogspot.com/2020/08/blog-post.html" class="resource-link">
+                    <h4>和尚鸚鵡飼養筆記</h4>
+                </a>
+				<a href="https://health.udn.com/health/story/123123/5622360" class="resource-link">
+                    <h4>寵物知識+</h4>
+                    <p>我的鸚鵡為何不會說話？鸚鵡飼養入門必須知道的事</p>
+                </a>
+            </div>
+            
+            <div style="margin: 2rem 0; display: flex; justify-content: space-between;">
+                <br>推</br>
+				<br>薦</br>
+				<br>影</br>
+				<br>片</br>
+
+              
+                <div style="background-color: #eee; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                    <p><iframe width="500" height="250" src="https://www.youtube.com/embed/jZBXW3ZBnHw?si=BrIGbc2lexF0Cnct" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+				</div>		
+                <div style="background-color: #eee; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+				    <p><iframe width="500" height="250" src="https://www.youtube.com/embed/X8XS5IXALJc?si=5s0NAJH_PAykmXqN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+				</div>
+            </div>
+        </section>
+
+        <section id="faq" class="section">
+            <h2>常見問題 FAQ</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q：和尚鸚鵡會說話嗎？</div>
+                <div class="faq-answer">A：他們不會說話，他們只是是模仿人講話的聲音。</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q：牠們適合新手飼養嗎？</div>
+                <div class="faq-answer">A：不適合，雖然牠們聰明可愛，但牠們非常吵鬧、社交需求高、需要大量關注，且破壞力強，不適合第一次養鳥或生活忙碌的人。新手建議從更安靜、需求較少的小型鳥類開始，例如虎皮鸚鵡或玄鳳鸚鵡。</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q：和尚鸚鵡吵嗎？</div>
+                <div class="faq-answer">A：非常吵喔!!</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q：為什麼在某些地方飼養牠們是違法的？</div>
+                <div class="faq-answer">A：主要是因為牠們逃脫後能在當地形成野外族群，成為外來入侵種，對當地農業造成損害。此外，在某些國家，未經許可飼養和繁殖野生動物是違法的，因為牠們可能被列為保育類動物。</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q：一隻和尚鸚鵡的價格大約是多少？</div>
+                <div class="faq-answer">A：和尚鸚鵡的價格會因其羽色和年齡而異。一般來說，人工繁殖的普通綠色和尚鸚鵡，幼鳥（1-3個月）的價格大約在 5000-8000元台幣之間；成鳥（1年以上）的價格則大約在3000-5000 元台幣之間。特殊羽色的鸚鵡，價格則可能在 8000-20000 元台幣(也有可能更高)。</div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 和尚鸚鵡科普網頁 | 僅供此作業使用</p>
+    </footer>
+
+    <script>
+        // 輪播圖功能
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.carousel-slide');
+            const totalSlides = slides.length;
+            
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                currentSlide = (n + totalSlides) % totalSlides;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+            
+            // 每5秒自動切換
+            setInterval(nextSlide, 5000);
+            
+            // 平滑滾動導航
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
